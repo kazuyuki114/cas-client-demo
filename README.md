@@ -12,9 +12,16 @@ the application server in the [`web.xml`](https://github.com/UniconLabs/cas-samp
 
 * Create a Java keystore at `/etc/cas/jetty/thekeystore` with the password `changeit`.
 * Import your server certificate inside this keystore.
-
 ```bash
-mvn clean package jetty:run-forked
+# Create custom truststore in your project
+keytool -import -alias cas-server-localhost -keystore etc/custom-truststore.jks -file etc/server.crt -storepass changeit -noprompt
+
+# Verify it was created
+ls -la etc/custom-truststore.jks
+```
+Run the project
+```bash
+mvn clean package jetty:run
 ```
 
 The application will be available on:

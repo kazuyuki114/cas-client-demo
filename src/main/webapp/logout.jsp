@@ -29,7 +29,7 @@
 <p>Application session is now invalidated. You may also issue a request to "/cas/logout" to destroy the CAS SSO Session as well.</p>
 <hr>
 
-<a href="https://mmoayyed.unicon.net:8443/cas/logout" class="btn btn-success">CAS Logout</a>
+<a href="https://localhost:8080/cas/logout" class="btn btn-success">CAS Logout</a>
 <a href="index.jsp" class="btn btn-primary">Home</a>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
