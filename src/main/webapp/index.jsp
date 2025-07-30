@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<h1>CAS Example Java Web App</h1>
+<h1>CAS Client Example Java Web App</h1>
 <sub>A sample web application that exercises the CAS protocol features via the Java CAS Client.</sub>
 <hr>
 
