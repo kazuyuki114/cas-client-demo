@@ -7,13 +7,13 @@
     <packaging>war</packaging>
     <name>CAS Example Java Web App</name>
     <description>A sample web application that exercises the CAS protocol features via the Java CAS Client.</description>
-
+    
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
+    
     <build>
         <finalName>cas-sample-java-webapp</finalName>
         <plugins>
@@ -26,7 +26,7 @@
                     <target>22</target>
                 </configuration>
             </plugin>
-
+            
             <!-- Add the Maven WAR plugin with a modern version -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -36,7 +36,7 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-
+            
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -59,7 +59,7 @@
                         </systemProperty>
                         <systemProperty>
                             <name>javax.net.ssl.trustStoreType</name>
-                            <value>PKCS12</value>
+                            <value>JKS</value>
                         </systemProperty>
                     </systemProperties>
                     <webApp>
