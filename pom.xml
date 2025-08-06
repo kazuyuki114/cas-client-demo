@@ -40,9 +40,21 @@
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.3.11.v20160721</version>
+                <version>9.4.52.v20230823</version>
                 <configuration>
-                    <jettyXml>${basedir}/etc/jetty/jetty.xml,${basedir}/etc/jetty/jetty-ssl.xml,${basedir}/etc/jetty/jetty-https.xml</jettyXml>
+                    <!-- HTTP Connector -->
+                    <httpConnector>
+                        <port>9080</port>
+                    </httpConnector>
+                    <!-- HTTPS Connector -->
+                    <httpsConnector>
+                        <port>9446</port>
+                        <keyStorePath>${basedir}/etc/custom-truststore.jks</keyStorePath>
+                        <keyStorePassword>changeit</keyStorePassword>
+                        <keyManagerPassword>changeit</keyManagerPassword>
+                        <trustStorePath>${basedir}/etc/custom-truststore.jks</trustStorePath>
+                        <trustStorePassword>changeit</trustStorePassword>
+                    </httpsConnector>
                     <systemProperties>
                         <systemProperty>
                             <name>org.eclipse.jetty.annotations.maxWait</name>
@@ -86,13 +98,7 @@
             <version>1.2.17</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.jasig.cas.client/cas-client-support-saml -->
-        <dependency>
-            <groupId>org.jasig.cas.client</groupId>
-            <artifactId>cas-client-support-saml</artifactId>
-            <version>3.4.1</version>
-        </dependency>
-
+        <!-- CAS Client with stable Jasig version -->
         <dependency>
             <groupId>org.jasig.cas.client</groupId>
             <artifactId>cas-client-core</artifactId>
@@ -103,6 +109,12 @@
                     <artifactId>servlet-api</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jasig.cas.client</groupId>
+            <artifactId>cas-client-support-saml</artifactId>
+            <version>3.4.1</version>
         </dependency>
     </dependencies>
 </project>
